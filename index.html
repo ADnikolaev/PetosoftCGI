@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Настройки</title>
+	<style>
+	body {
+	background: url(../images/bg.png) repeat;
+	color: #999;
+	font: 100%/1.5em sans-serif;
+	margin: 0;
+}
+
+h1 { margin: 0; }
+
+a {
+	color: #999;
+	text-decoration: none;
+}
+
+a:hover { color: #1dabb8; }
+
+fieldset {
+	border: none;
+	margin: 0;
+}
+
+input {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	margin: 0;
+	outline: none;
+	-webkit-appearance: none;
+}
+
+input[type="submit"] { cursor: pointer; }
+
+.clearfix { *zoom: 1; }
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;	
+}
+.clearfix:after { clear: both; }
+
+/* ---------- LOGIN-FORM ---------- */
+
+#login-form {
+	margin: 65px auto;
+	width: 300px;
+}
+
+#login-form h1 {
+	background-color: #4E342E;
+	/* border-radius: 5px 5px 0 0; */
+	color: #ECEFF1;
+	font-size: 14px;
+	padding: 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#login-form fieldset {
+	background: #ECEFF1;
+	/* border-radius: 0 0 5px 5px; */
+	padding: 20px;
+	position: relative;
+}
+
+#login-form fieldset:before {
+	background-color: #ECEFF1;
+	content: "";
+	height: 8px;
+	left: 50%;
+	margin: -4px 0 0 -4px;
+	position: absolute;
+	top: 0;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	width: 8px;
+}
+
+#login-form input {
+	font-size: 14px;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+	border: 1px solid #dcdcdc;
+	padding: 12px 10px;
+	width: 238px;
+}
+
+#login-form input[type="text"] {
+	/* border-radius: 3px 3px 0 0; */
+}
+
+#login-form input[type="password"] {
+	border-top: none;
+	
+	margin-top: 20px;
+}
+
+#login-form input[type="submit"] {
+	background: #5D4037;
+	float: right;
+	margin-right:86px;
+	color: #fff;
+	float: right;
+	font-weight: bold;
+	margin-top: 20px;
+	padding: 12px 20px;
+}
+
+#login-form input[type="submit"]:hover { background: #c4c005; }
+
+#login-form footer {
+	font-size: 12px;
+	margin-top: 16px;
+}
+
+@-webkit-keyframes slideOut{
+	0%{top:-30px; opacity: 0;}
+	100%{top:0px; opacity: 1;}
+}
+
+#header{ 
+	background-color: white;          
+	height: 250px;
+}
+#headerLine{ 
+	/* background-color: #c4c005; */          
+	height: 20px;
+	/* margin: 5px 10% 5px  10%; */
+}
+
+a.logo{
+		margin-left: 37%;
+		margin-top: 5px;
+			}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		function getCookie(name)
+		{
+		var matches = document.cookie.match(new RegExp( "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)" ));
+		return matches ? decodeURIComponent(matches[1]): undefined;
+        	 }	
+		var L=parseInt(getCookie("entrance"));
+		if (L == 1)
+		{document.location.href="http://192.168.18.10:8000/cgi-bin/videoOption.py";}	
+	</script>
+
+
+	<div id="header">
+	<div><a class ="logo"><img src="logoPetr.png"></a></div></div>
+	</div>
+
+
+    <div id="login-form">
+        <h1>Авторизация</h1>
+
+        <fieldset>
+            <form action="/cgi-bin/videoOption.py" method="POST">
+                <input type="text" name="LOGIN" required value="Логин" onBlur="if(this.value=='')this.value='Логин'" onFocus="if(this.value=='Логин')this.value='' ">
+                <input type="password" name="PASSWORD" required value="Пароль" onBlur="if(this.value=='')this.value='Пароль'" onFocus="if(this.value=='Пароль')this.value='' ">
+                <input type="submit" value="ВОЙТИ">
+                <footer class="clearfix">
+                </footer>
+            </form>
+        </fieldset>
+
+    </div>
+</body>
+</html>
